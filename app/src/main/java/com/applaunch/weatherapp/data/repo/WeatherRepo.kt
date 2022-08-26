@@ -1,4 +1,7 @@
-package com.applaunch.weatherapp.model.repo
+package com.applaunch.weatherapp.data.repo
 
-class WeatherRepo {
+import com.applaunch.weatherapp.api.WeatherService
+
+object WeatherRepo {
+    suspend fun getWeatherDetails() = WeatherService.getWeatherApi()
 }

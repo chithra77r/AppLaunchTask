@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+
+    <!--Welcome Screen-->
+    <string name="welcome">Welcome</string>
+    <string name="login">Login</string>
+
+    <!--Login Screen-->
+    <string name="user_name">UserName</string>
+    <string name="passWord">Password</string>
+
+    <!--Login Screen-->
+    <string name="list_of_user">List Of User</string>
+
+    <!--User List-->
+    <string name="user_list">User List</string>
+    <string name="delete_msg">Item deleted successfully</string>
+
+    <!--UserForm-->
+    <string name="user_form">User Form</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email Id</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+
+    <!--Weather-->
+    <string name="today_weather">Today Weather</string>
+    <string name="temperature">Temperature</string>
+    <string name="weather_type">Weather Type</string>
+    <string name="weather_details">Weather Details</string>
+    <string name="humidity">Humidity</string>
+    <string name="wind_speed">Wind Speed</string>
+    <string name="logout">Logout</string>
+    <string name="field_error">Field should not be blank</string>
+
+
 </resources>

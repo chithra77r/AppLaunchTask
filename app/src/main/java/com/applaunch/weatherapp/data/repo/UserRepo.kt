@@ -1,16 +1,24 @@
-package com.applaunch.weatherapp.model.repo
+package com.applaunch.weatherapp.data.repo
 
-import com.applaunch.weatherapp.model.db.AppDatabase
-import com.applaunch.weatherapp.model.db.dao.UserDao
+import androidx.lifecycle.LiveData
+import com.applaunch.weatherapp.api.WeatherService
+import com.applaunch.weatherapp.data.db.AppDatabase
+import com.applaunch.weatherapp.data.db.dao.UserDao
+import com.applaunch.weatherapp.data.model.User
 
-class UserRepo {
+object UserRepo {
 
-    lateinit var userDao :UserDao
-    init {
-        userDao= AppDatabase.getDbInstance()?.userDao()!!
+    var userDao = AppDatabase.getDbInstance()?.userDao()!!
+
+    suspend fun insertUser(user: User) {
+        userDao.insertUser(user)
     }
 
+   suspend fun getAllUsersByAdminId(adminId: Long): MutableList<User>{
+      return userDao.getAllUsersByAdminId(adminId).toMutableList()
+    }
 
-
-
+    suspend fun deleteUser(user: User) {
+        userDao.deleteUser(user)
+    }
 }

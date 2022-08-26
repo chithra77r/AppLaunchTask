@@ -1,6 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="weatherDetail"
+            type="com.applaunch.weatherapp.data.model.WeatherDetails" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="@dimen/space_8"
+                android:src="@drawable/ic_baseline_arrow_back_24"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextView.Large"
+                android:layout_gravity="center"
+                android:text="@string/weather_details"/>
+
+            <Button
+                android:id="@+id/btLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/logout"/>
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/tvTemp"
+            style="@style/TextView.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_8"
+            android:layout_marginTop="@dimen/space_24"
+            android:text="@{@string/temperature+` : `+weatherDetail.current.temp}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            tools:text="Temperature : 100.00" />
+
+        <TextView
+            android:id="@+id/tvHumidity"
+            style="@style/TextView.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_8"
+            android:text="@{@string/humidity+` : `+weatherDetail.current.humidity}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTemp"
+            tools:text="Humidity : 79" />
+
+        <TextView
+            android:id="@+id/tvWindSpeed"
+            style="@style/TextView.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_8"
+            android:text="@{@string/wind_speed+` : `+weatherDetail.current.windSpeed}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvHumidity"
+            tools:text="Wind Speed : 320" />
+
+        <TextView
+            android:id="@+id/tvWeatherType"
+            style="@style/TextView.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_8"
+            android:text="@{@string/weather_type+` : `+weatherDetail.current.weather.get(0).main}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvWindSpeed"
+            tools:text="Weather Type : Rain" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="user"
+            type="com.applaunch.weatherapp.data.model.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space_8">
+
+        <TextView
+            android:id="@+id/tvFirstName"
+            style="@style/TextView.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:text="@{`First Name : ` +user.firstName}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/first_name"/>
+
+        <TextView
+            android:id="@+id/tvLastName"
+            style="@style/TextView.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:text="@{`Last Name : ` + user.lastName}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:text="@string/last_name"
+            app:layout_constraintTop_toBottomOf="@+id/tvFirstName" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            style="@style/TextView.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:hint="@string/email"
+            android:text="@{`Email : `+ user.mailId}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLastName"
+            tools:text="@string/email"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
